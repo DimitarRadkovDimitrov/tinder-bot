@@ -63,50 +63,65 @@ def likeById(id):
         print("Request has failed")
         print(e)
         sys.exit()
-    
+
 
 def autoLike(iterations):
     personList = []
     personList = getRecommendations()
     personIds = [person['_id'] for person in personList]
 
-    #print("Initial list size: " + str(len(personIds)))
-
     while len(personIds) < iterations:
-        print("Masterlist size: " + str(len(personIds)))
-        #print("MASTER BEFORE: " + str(sorted(personIds)))
         tempList = []
         tempList = getRecommendations()
-        tempListIds = [temp['_id'] for temp in tempList] 
-        #print("TEMPLIST: " + str(sorted(tempListIds)))
+        tempListIds = [temp['_id'] for temp in tempList]
         personIds.extend(list(set(tempListIds) - set(personIds)))
-        #print("Temp list size: " + str(len(tempListIds)))
-        #print("MASTER AFTER: " + str(sorted(personIds)))
-        #print("NEW Masterlist size: " + str(len(personIds)))
 
     count = 0
     for id in personIds:
         if count == iterations:
             break
-        print(id)
-        #likeById(id)
+        likeById(id)
         count += 1
 
 if __name__ == "__main__":
     if len(sys.argv) < 3:
+        if len(sys.argv) == 2 and sys.argv[1] == "help":
+            print("----------------------------------------------------------------------")
+            print("How to use this program:\n")
+            print("1) Enter the base arguments:\n\tpython runTinder.py\n")
+            print("2) Add in your facebook email and password separated by spaces:")
+            print("\tpython runTinder.py user@gmail.com password\n")
+            print("3) Add in the number of times you want to run the program:")
+            print("\tpython runTinder.py user@gmail.com password 100\n")
+            print("4) Press enter and hope for the best\n")
+            print("Note: Tinder gives you about 100 likes per 12 hours")
+            print("Please send me a fb message or email at dimitar@uoguelph.ca if you ")
+            print("have any feedback")
+            print("----------------------------------------------------------------------")
+            sys.exit()
+        else:
+            print("----------------------------------------------------------------------")
+            print("Please enter both your fb email and password as command line arguments\n")
+            print("For example: python runTinder.py fbEmail fbPassword")
+            print("----------------------------------------------------------------------")
+            sys.exit()
+    elif len(sys.argv) == 3:
         print("----------------------------------------------------------------------")
-        print("Please enter both your fb email and password as command line arguments\n")
-        print("For example: ./runTinder.py fbEmail fbPassword")
+        print("Please enter the number of iterations you wish to run\n")
+        print("For example: python runTinder.py fbEmail fbPassword 10")
         print("----------------------------------------------------------------------")
         sys.exit()
     elif len(sys.argv) > 3:
         iterations = 0
-        if sys.argv[3] is not None and str.isdigit(sys.argv[3]):    
+        if sys.argv[3] is not None and str.isdigit(sys.argv[3]):
             iterations = int(sys.argv[3])
-
-        fbAuth = getFacebookAuth(sys.argv[1], sys.argv[2])
-        tinderToken = getTinderToken(fbAuth)
-
-        header['X-Auth-Token'] = tinderToken
-        if iterations > 0:
-            autoLike(iterations)
+            if iterations > 0:
+                fbAuth = getFacebookAuth(sys.argv[1], sys.argv[2])
+                tinderToken = getTinderToken(fbAuth)
+                header['X-Auth-Token'] = tinderToken
+                autoLike(iterations)   
+        else:
+            print("----------------------------------------------------------------------")
+            print("Invalid iteration number, please try again")
+            print("----------------------------------------------------------------------")
+            sys.exit()
