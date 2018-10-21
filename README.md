@@ -7,6 +7,8 @@ Tinder Python app for easy use. Just enter your facebook email and password with
 1. A valid Tinder account made with your facebook account (open the app from your phone to make sure it works)
 
 2. Python installed on your computer - https://www.python.org/downloads/
+
+3. This project downloaded on your computer - Use cmd or terminal (mac) to open "TinderBot" directory
 <br><br>
 
 ## How to Use the Program: ##
