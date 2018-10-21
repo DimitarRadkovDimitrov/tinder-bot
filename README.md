@@ -8,21 +8,25 @@ Tinder Python app for easy use. Just enter your facebook email and password with
 
 2. Python installed on your computer and added to your path (environment variable) - https://www.python.org/downloads/ 
 
-3. This project downloaded on your computer - Use cmd or terminal (mac) to open "TinderBot" directory
+3. Pipenv - Use cmd or terminal (mac) and use 
+
+    ```pip install --upgrade pipenv```
+
+4. This project downloaded on your computer - Use cmd or terminal (mac) to open "TinderBot" directory
 <br><br>
 
 ## How to Use the Program: ##
 1. Enter the base arguments:
 
-    ```python runTinder.py```
+    ```pipenv run python runTinder.py```
 
 2.  Add in your facebook email and password separated by spaces:
 
-    ```python runTinder.py user@gmail.com password```
+    ```pipenv run python runTinder.py user@gmail.com password```
 
 3. Add in the number of times you want to run the program:
 
-    ```python runTinder.py user@gmail.com password 100```
+    ```pipenv run python runTinder.py user@gmail.com password 100```
 
 4.  Press enter and hope for the best
 <br><br>

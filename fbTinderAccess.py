@@ -1,4 +1,4 @@
-#!/usr/local/bin/python3.6
+#!/usr/local/bin/python3.7
 # Used from  https://github.com/philipperemy/Deep-Learning-Tinder/blob/master/tinder_token.py
 
 import re

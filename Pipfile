@@ -3,11 +3,11 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 name = "pypi"
 
-[packages]
-requests = "*"
-robobrowser = "*"
-
 [dev-packages]
+
+[packages]
+robobrowser = "*"
+requests = "*"
 
 [requires]
 python_version = "3.6"
