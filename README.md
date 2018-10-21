@@ -25,8 +25,6 @@ Tinder Python app for easy use. Just enter your facebook email and password with
 4.  Press enter and hope for the best
 <br><br>
 
-*Note*: Tinder gives you about 100 likes per 12 hours.
-
-Please send me a fb message or email at dimitar@uoguelph.ca if you have any feedback
+*Note*: Tinder gives you about 100 likes per 12 hours. Please send me a fb message or email at dimitar@uoguelph.ca if you have any feedback.
 <br><br>
 PS - God bless https://github.com/philipperemy/ for figuring out the fb authentication
