@@ -7,7 +7,5 @@ name = "pypi"
 
 [packages]
 robobrowser = "*"
+lxml = "*"
 requests = "*"
-
-[requires]
-python_version = "3.6"
